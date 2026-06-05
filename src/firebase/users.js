@@ -9,6 +9,7 @@ export const syncUserProfile = async (user) => {
 		photoURL: user.photoURL ?? "",
 		updatedAt: serverTimestamp(),
 	};
-
-	await setDoc(doc(db, "users", user.uid), userDoc, { merge: true });
+	//ユーザー情報をFirestoreに保存。ユーザーIDをキーにして保存。
+	const userDocRef = doc(db, "users", user.uid);
+	await setDoc(userDocRef, userDoc, { merge: true });
 };

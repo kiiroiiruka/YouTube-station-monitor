@@ -1,1 +1,86 @@
 @import "tailwindcss";
+
+@theme {
+	--color-brand: #0f172a;
+	--color-brand-light: #1e293b;
+	--color-accent: #f97316;
+	--color-accent-hover: #ea580c;
+	--color-surface: #f8fafc;
+	--font-sans: "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+@layer base {
+	body {
+		@apply bg-surface font-sans text-slate-800 antialiased;
+	}
+}
+
+@layer components {
+	.app-shell {
+		@apply min-h-screen bg-gradient-to-br from-slate-100 via-white to-orange-50/40;
+	}
+
+	.page-content {
+		@apply mx-auto max-w-3xl p-6 md:p-10;
+	}
+
+	.page-card {
+		@apply rounded-2xl border border-slate-200/80 bg-white/80 p-6 shadow-sm backdrop-blur-sm md:p-8;
+	}
+
+	.page-title {
+		@apply text-2xl font-bold tracking-tight text-brand;
+	}
+
+	.page-subtitle {
+		@apply mt-2 text-sm text-slate-500;
+	}
+
+	.btn-primary {
+		@apply rounded-xl bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-md shadow-accent/20 transition hover:bg-accent-hover disabled:opacity-50;
+	}
+
+	.auth-card {
+		@apply w-full max-w-sm rounded-2xl border border-slate-200/80 bg-white/90 p-8 shadow-xl backdrop-blur-sm;
+	}
+
+	.auth-title {
+		@apply text-center text-2xl font-bold tracking-tight text-brand;
+	}
+
+	.sidebar-panel {
+		@apply flex h-full w-full flex-col border-r border-accent/30 bg-brand text-white shadow-2xl;
+	}
+
+	.sidebar-header {
+		@apply border-b border-white/10 px-5 py-4;
+	}
+
+	.sidebar-brand {
+		@apply text-xs font-semibold tracking-[0.2em] text-accent uppercase;
+	}
+
+	.sidebar-title {
+		@apply mt-1 text-base font-bold;
+	}
+
+	.sidebar-nav-link {
+		@apply block rounded-lg px-3 py-2.5 text-sm text-slate-300 transition hover:bg-white/10 hover:text-white;
+	}
+
+	.sidebar-nav-link-active {
+		@apply bg-accent/20 font-medium text-white ring-1 ring-accent/40;
+	}
+
+	.sidebar-handle {
+		@apply rounded-r-xl border border-l-0 border-white/10 bg-brand px-2 py-8 text-accent shadow-lg transition hover:bg-brand-light;
+	}
+
+	.loading-text {
+		@apply text-sm text-slate-400;
+	}
+
+	.error-text {
+		@apply text-sm text-red-500;
+	}
+}
